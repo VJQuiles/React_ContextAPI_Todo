@@ -4,12 +4,15 @@ export interface Todo {
     completed: boolean
 }
 
+export type TodoId = Todo['id']
+
 export interface TodoContextType {
-    addTodo(text: string): void
-    toggleTodo(id: string | number): void
-    deleteTodo(id: string | number): void
-    editTodo(id: string | number, newText: string): string
-    clearCompleted(): void
+    todos: Todo[]
+    addTodo: (text: string) => void
+    toggleTodo: (id: string | number) => void
+    deleteTodo: (id: string | number) => void
+    editTodo: (id: string | number, newText: string) => string
+    clearCompleted(): () => void
 }
 
 export interface ThemeContextType {

@@ -3,8 +3,7 @@ import type { ThemeContextType, TodoContextType } from '../types'
 
 export const ThemeContext = React.createContext<ThemeContextType>({
     theme: 'light',
-    toggleTheme: () => console.warn()
+    toggleTheme: () => void
 })
 
-export const TodoContext = React.createContext<TodoContextType>({
-})
+export const TodoContext = React.createContext<TodoContextType | undefined>(undefined)
