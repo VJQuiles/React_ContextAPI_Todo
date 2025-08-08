@@ -7,11 +7,7 @@ interface TodoProviderProps {
 }
 
 export const TodoProvider = ({ children }: TodoProviderProps) => {
-    const [todos, setTodos] = useState<Todo[]>([
-        { id: 1, text: 'bibbity', completed: false },
-        { id: 2, text: 'bobbity', completed: true },
-        { id: 3, text: 'ooga booga booga', completed: false }
-    ])
+    const [todos, setTodos] = useState<Todo[]>([])
 
     const addTodo = (text: string) => {
         setTodos((prev) => [
@@ -32,7 +28,7 @@ export const TodoProvider = ({ children }: TodoProviderProps) => {
         )
     }
 
-    const editTodo = (id: number, newText: string) => {
+    const editTodo = (id: number | string, newText: string) => {
         setTodos((prev) =>
             prev.map((todo) =>
                 todo.id === id ? { ...todo, text: newText } : todo

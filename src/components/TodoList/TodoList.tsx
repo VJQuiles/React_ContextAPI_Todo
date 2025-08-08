@@ -4,7 +4,7 @@ import { TodoContext } from "../../contexts/contexts"
 import { useContext } from "react"
 
 export default function TodoList() {
-    const { todos, deleteTodo, toggleTodo, editTodo } = useContext(TodoContext)
+    const { todos, deleteTodo, toggleTodo, editTodo, clearCompleted } = useContext(TodoContext)
 
     return (
         <div>
@@ -21,7 +21,6 @@ export default function TodoList() {
                     />
                 ))}
             </ul>
-            <button>Clear List</button>
         </div>
     )
 }

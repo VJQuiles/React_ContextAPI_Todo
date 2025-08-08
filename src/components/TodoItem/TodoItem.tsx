@@ -3,9 +3,9 @@ import type { Todo } from "../../types"
 
 interface TodoItemProps {
     todo: Todo
-    deleteTodo: () => void
-    toggleTodo: () => void
-    editTodo: () => void
+    deleteTodo: (id: number | string) => void
+    toggleTodo: (id: number | string) => void
+    editTodo: (id: number | string, newString: string) => void
 }
 
 export default function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: TodoItemProps) {
@@ -13,7 +13,7 @@ export default function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: Tod
     const [editText, setEditText] = useState(todo.text)
 
     const handleEditSave = () => {
-        editTodo()
+        editTodo(todo.id, editText)
         setActiveEditing(false)
     }
     return (
@@ -26,7 +26,7 @@ export default function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: Tod
                         placeholder={editText}
                         onChange={(e) => setEditText(e.target.value)}
                     />
-                    <button onClick={handleEditSave}>Save Edit</button>
+                    <button onClick={handleEditSave} disabled={!editText.trim()}>Save Edit</button>
                     <button onClick={() => setActiveEditing(false)}>Nevermind</button>
                 </>
             ) : (
@@ -34,11 +34,11 @@ export default function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: Tod
                     <span>
                         {todo.text}
                     </span>
-                    <button onClick={() => toggleTodo()}>
+                    <button onClick={() => toggleTodo(todo.id)}>
                         {todo.completed ? 'Undo' : 'Complete'}
                     </button>
                     <button onClick={() => setActiveEditing(true)}>Edit Todo</button>
-                    <button onClick={() => deleteTodo()}>Chalk it</button>
+                    <button onClick={() => deleteTodo(todo.id)}>Chalk it</button>
                 </>
             )
             }
