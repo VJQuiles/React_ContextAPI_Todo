@@ -11,8 +11,8 @@ export interface TodoContextType {
     addTodo: (text: string) => void
     toggleTodo: (id: string | number) => void
     deleteTodo: (id: string | number) => void
-    editTodo: (id: string | number, newText: string) => string
-    clearCompleted(): () => void
+    editTodo: (id: string | number, newText: string) => void
+    clearCompleted: () => void
 }
 
 export interface ThemeContextType {
