@@ -1,8 +1,13 @@
 export default function TodoInput() {
     return (
         <div>
-            <label htmlFor="todoInput">Enter Todo</label>
-            <input id="todoInput" />
+            <input
+                id="todoInput"
+                placeholder="Enter Todo"
+            />
+            <button>
+                Add Todo
+            </button>
         </div>
     )
 }
