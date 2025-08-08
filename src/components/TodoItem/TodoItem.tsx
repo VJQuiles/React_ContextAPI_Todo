@@ -1,18 +1,19 @@
-import { useContext, useState } from "react"
-import { TodoContext } from "../../contexts/contexts"
+import { useState } from "react"
 import type { Todo } from "../../types"
 
 interface TodoItemProps {
     todo: Todo
+    deleteTodo: () => void
+    toggleTodo: () => void
+    editTodo: () => void
 }
 
-export default function TodoItem({ todo }: TodoItemProps) {
-    const { deleteTodo, toggleTodo, editTodo } = useContext(TodoContext)
+export default function TodoItem({ todo, deleteTodo, toggleTodo, editTodo }: TodoItemProps) {
     const [activeEditing, setActiveEditing] = useState(false)
     const [editText, setEditText] = useState(todo.text)
 
     const handleEditSave = () => {
-        editTodo(todo.id, editText)
+        editTodo()
         setActiveEditing(false)
     }
     return (
@@ -33,11 +34,11 @@ export default function TodoItem({ todo }: TodoItemProps) {
                     <span>
                         {todo.text}
                     </span>
-                    <button onClick={() => toggleTodo(todo.id)}>
+                    <button onClick={() => toggleTodo()}>
                         {todo.completed ? 'Undo' : 'Complete'}
                     </button>
                     <button onClick={() => setActiveEditing(true)}>Edit Todo</button>
-                    <button onClick={() => deleteTodo(todo.id)}>Chalk it</button>
+                    <button onClick={() => deleteTodo()}>Chalk it</button>
                 </>
             )
             }

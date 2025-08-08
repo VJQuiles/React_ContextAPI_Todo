@@ -1,6 +1,6 @@
-import { useState, type ReactNode, useEffect, useMemo } from "react"
+import { useState, type ReactNode, useMemo } from "react"
 import { TodoContext } from "../contexts/contexts"
-import { Todo } from "../types"
+import type { Todo } from "../types"
 
 interface TodoProviderProps {
     children: ReactNode

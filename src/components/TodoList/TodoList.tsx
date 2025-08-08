@@ -1,26 +1,26 @@
 import TodoInput from "../TodoInput/TodoInput"
 import TodoItem from "../TodoItem/TodoItem"
-import type { Todo } from "../../types"
+import { TodoContext } from "../../contexts/contexts"
+import { useContext } from "react"
 
-interface TodoListProps {
-    todos: Todo[]
-}
-export default function TodoList({ todos }: TodoListProps) {
+export default function TodoList() {
+    const { todos, deleteTodo, toggleTodo, editTodo } = useContext(TodoContext)
 
     return (
         <div>
             <h1>Todo List</h1>
             <TodoInput />
-            <div>
+            <ul>
                 {todos.map((todo) => (
-                    <div key={todo.id}>
-                        <span>{todo.text}</span>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </div>
+                    <TodoItem
+                        key={todo.id}
+                        todo={todo}
+                        deleteTodo={deleteTodo}
+                        toggleTodo={toggleTodo}
+                        editTodo={editTodo}
+                    />
                 ))}
-            </div>
-            <TodoItem />
+            </ul>
             <button>Clear List</button>
         </div>
     )
