@@ -1,6 +1,18 @@
-# 🚧Under Construction🚧
+# Context Todo List
 
-This project is still in the works, please pardon it's unfinished nature. 
+Welcome to my todo list leveraging useContext! Enjoy a wonky looking task list that you can toggle light and dark mode on, for your tired eyes. 
+
+## Project Structure:
+
+In this project, I started with the interfaces for a todo item, as well as the interface for theme context and todo context. From there I went on to create the context and provider for the theme, and then implemented it. I then applied the logic to the todo context, building the componenets along the way. I finished up with local sotrage before shipping off. 
+
+## Reflection
+
+This project kind of tunred me upside down a little. I think it's because I wasn't strong on syntactical structure in React Basics, and now introducing new hooks are making it difficult to get my bearings. But I think it's settling more. I get the process and reason for useContext, but man it's one thing to explain something conceptually, it's another to put it into practice. 
+
+I followed along with the lesson 3 example for the theme, which worked well for the most part, it was todo that got me a little more. 
+
+I will say, i do think this project helped my understanding of typescript a bit, oddly enough. 
 
 # React + TypeScript + Vite
 
